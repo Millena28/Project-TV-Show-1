@@ -1,25 +1,20 @@
-//You can edit ALL of the code here
+/** Sets up the episode display */
 function setup() {
   const allEpisodes = getAllEpisodes();
   const root = document.getElementById("root");
-  /* JSDoc
-   * @param {object[]} allEpisodes - The episodes
-   * @param {Element} root - The root element
-   */
   const episodeCards = allEpisodes.map((episode) =>
     episodeCard("episode-template", episode)
   );
-  /* JSDoc
-   * @param {Element[]} episodeCards - The episode cards
-   */
   episodeCards.forEach((card) => {
     root.appendChild(card);
   });
 }
-/* JSDoc
- * @param {string} template - The template to clone
- * @param {object} episode - The episode object
- * @returns {Element} - The card element
+
+/**
+ * Creates episode card from template
+ * @param {string} template - Template ID to clone
+ * @param {object} episode - Episode data with id, image, name, summary, season, number
+ * @returns {Element} Card fragment
  */
 const episodeCard = (
   template,
@@ -38,21 +33,22 @@ const episodeCard = (
   return card;
 };
 
-/* JSDoc
- * @param {number} number - The number to pad
- * @returns {string} - The padded number
+/**
+ * @param {number} number
+ * @returns {string} Zero-padded number
  */
 const pad = (number) => number.toString().padStart(2, "0");
 
-/* JSDoc
- * @param {number} season - The season number
- * @param {number} episode - The episode number
- * @returns {string} - The episode code
+/**
+ * @param {number} season
+ * @param {number} episode
+ * @returns {string} Format: SXXEXX
  */
 const makeEpisodeCode = (season, episode) => `S${pad(season)}E${pad(episode)}`;
-/* JSDoc
- * @param {string} html - The HTML to parse
- * @returns {Document} - The parsed HTML
+
+/**
+ * @param {string} html
+ * @returns {Document} Parsed HTML from TV Maze API (it sends <p> tags)
  */
 const parseFromAPI = (html) => {
   const parser = new DOMParser();
