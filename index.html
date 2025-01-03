@@ -31,7 +31,28 @@
       </form>
     </header>
     <main>
-      <div id="card-container" class="grid"></div>
+      <div id="card-container" class="grid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+          <style>
+            @keyframes dash {
+              to {
+                stroke-dashoffset: 20;
+              }
+            }
+          </style>
+          <circle
+            cx="25"
+            cy="25"
+            r="10"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            stroke-dasharray="4"
+            style="animation: dash 3s infinite"
+          />
+          <text x="0" y="25" color="#fff">Loading</text>
+        </svg>
+      </div>
       <template id="episode-card">
         <section data-episode class="card">
           <h3 class="card__title" data-episode="title">
@@ -54,10 +75,6 @@
     <footer>
       <h2>Data originally from <a href="https://tvmaze.com/">TV Maze</a></h2>
     </footer>
-
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="lib/episodes.js"></script>
-
     <!-- Loads YOUR javascript code -->
     <script src="lib/main.mjs" type="module"></script>
   </body>

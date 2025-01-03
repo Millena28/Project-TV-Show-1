@@ -68,6 +68,7 @@ select {
     / var(--spacing-l) 1fr var(--spacing-l);
   border: 1px solid var(--ink);
   box-shadow: var(--spacing-s) var(--spacing-s) var(--spacing-l) var(--ink);
+  animation: cubic-bezier(0.47, 0, 0.745, 0.715) 300ms fade-in;
 }
 .card__title {
   grid-area: title;
@@ -77,4 +78,13 @@ select {
 }
 .card__image {
   grid-area: image;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
