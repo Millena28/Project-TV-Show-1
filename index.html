@@ -11,35 +11,54 @@
   <body>
     <header>
       <h1>TV Show Project</h1>
-      <h2>By Sample Solution</h2>
+      <h2>Sample Solution</h2>
+      <form>
+        <label for="episode-search"
+          >Filter Episodes
+          <input
+            type="search"
+            id="episode-search"
+            name="episode-search"
+            placeholder="Search Episodes"
+        /></label>
+        <label for="episode-select"
+          >Select One Episode
+          <select id="episode-select" name="episode-select"></select
+        ></label>
+        <template id="option-template">
+          <option>Select an episode</option>
+        </template>
+      </form>
     </header>
-    <main id="root" class="grid"></main>
-    <template id="episode-template">
-      <section data-episode class="card">
-        <h3 class="card__title" data-episode="title">Episode Name Goes Here</h3>
-        <h4 class="card__code" data-episode="code">Episode Code Goes Here</h4>
-        <div class="card__summary" data-episode="summary">
-          Summary Goes Here
-        </div>
-        <img
-          class="card__image"
-          data-episode="image"
-          src=""
-          alt=""
-          height="140"
-          width="250"
-        />
-      </section>
-    </template>
-
+    <main>
+      <div id="card-container" class="grid"></div>
+      <template id="episode-card">
+        <section data-episode class="card">
+          <h3 class="card__title" data-episode="title">
+            Episode Name Goes Here
+          </h3>
+          <div class="card__summary" data-episode="summary">
+            Summary Goes Here
+          </div>
+          <img
+            class="card__image"
+            data-episode="image"
+            src=""
+            alt=""
+            height="140"
+            width="250"
+          />
+        </section>
+      </template>
+    </main>
     <footer>
       <h2>Data originally from <a href="https://tvmaze.com/">TV Maze</a></h2>
     </footer>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
+    <script src="lib/episodes.js"></script>
 
     <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
+    <script src="lib/main.mjs" type="module"></script>
   </body>
 </html>
