@@ -13,20 +13,24 @@
       <h1>TV Show Project</h1>
       <h2>Sample Solution</h2>
       <form>
+        <label for="show-select"
+          >Select A Show
+          <select id="show-select" name="episode-select"></select
+        ></label>
+        <label for="episode-select"
+          >Select One Episode
+          <select id="episode-select" name="episode-select"></select
+        ></label>
         <label for="episode-search"
-          >Filter Episodes
+          >Filter
           <input
             type="search"
             id="episode-search"
             name="episode-search"
             placeholder="Search Episodes"
         /></label>
-        <label for="episode-select"
-          >Select One Episode
-          <select id="episode-select" name="episode-select"></select
-        ></label>
         <template id="option-template">
-          <option>Select an episode</option>
+          <option>Select an option</option>
         </template>
       </form>
     </header>
@@ -53,11 +57,9 @@
           <text x="0" y="25" color="#fff">Loading</text>
         </svg>
       </div>
-      <template id="episode-card">
+      <template id="card-template">
         <section data-episode class="card">
-          <h3 class="card__title" data-episode="title">
-            Episode Name Goes Here
-          </h3>
+          <h3 class="card__title" data-episode="title">Name Goes Here</h3>
           <div class="card__summary" data-episode="summary">
             Summary Goes Here
           </div>
