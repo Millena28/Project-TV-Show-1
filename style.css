@@ -38,11 +38,13 @@ h1 {
 form {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--spacing-m);
   padding: var(--spacing-l) 0;
 }
 input,
-select {
+select,
+button {
   padding: var(--spacing-m);
 }
 /* Whole Page Layout */
@@ -64,6 +66,7 @@ select {
     "image image image" 140px
     ". title ." auto
     ". summary ." 1fr
+    ". meta    ." min-content
     ". ....... ." var(--spacing-l)
     / var(--spacing-l) 1fr var(--spacing-l);
   border: 1px solid var(--ink);
@@ -78,6 +81,22 @@ select {
 }
 .card__image {
   grid-area: image;
+}
+.card__rating {
+  grid-area: image;
+  padding: var(--spacing-m);
+  margin: 0 auto auto 0;
+  background: var(--ink);
+  z-index: 1;
+  font-weight: bolder;
+}
+.card__meta {
+  grid-area: meta;
+}
+.card--show:hover,
+.card--show:focus {
+  opacity: 0.75;
+  mix-blend-mode: exclusion;
 }
 
 @keyframes fade-in {
