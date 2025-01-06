@@ -25,12 +25,18 @@
           >Select One Episode
           <select id="episode-select" name="episode-select"></select
         ></label>
+        <button type"reset">Reset</button>
         <template id="option-template">
           <option>Select an episode</option>
         </template>
+
       </form>
     </header>
-    <main>
+    <main class="container">
+      <h2 id="count-container" aria-live="polite"></h2>
+      <template id="results-template">
+        <h2>Showing n results</h2>
+      </template>
       <div id="card-container" class="grid"></div>
       <template id="episode-card">
         <section data-episode class="card">

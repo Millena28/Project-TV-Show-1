@@ -42,7 +42,8 @@ form {
   padding: var(--spacing-l) 0;
 }
 input,
-select {
+select,
+button {
   padding: var(--spacing-m);
 }
 /* Whole Page Layout */
