@@ -25,14 +25,19 @@
           >Select One Episode
           <select id="episode-select" name="episode-select"></select
         ></label>
+        <button type"reset">Reset</button>
         <template id="option-template">
           <option>Select an episode</option>
         </template>
       </form>
     </header>
-    <main>
+    <main class="container">
+      <h2 id="count-container" aria-live="polite"></h2>
+      <template id="results-template">
+        <h2>Showing n results</h2>
+      </template>
       <div id="card-container" class="grid">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
           <style>
             @keyframes dash {
               to {
