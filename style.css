@@ -79,3 +79,8 @@ button {
 .card__image {
   grid-area: image;
 }
+
+.is-invisible {
+  position: absolute;
+  margin-left: -999em;
+}
