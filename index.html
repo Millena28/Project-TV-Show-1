@@ -9,22 +9,22 @@
   </head>
 
   <body>
-    <header>
+    <header class="container">
       <h1>TV Show Project</h1>
       <h2>Sample Solution</h2>
-      <form>
-        <label for="episode-search"
-          >Filter Episodes
+      <form class="container">
+        <label for="episode-search" class="is-invisible"
+          >Filter Episodes</label>
           <input
             type="search"
             id="episode-search"
             name="episode-search"
             placeholder="Search Episodes"
-        /></label>
-        <label for="episode-select"
-          >Select One Episode
+        />
+        <label for="episode-select" class="is-invisible"
+          >Select One Episode</label>
           <select id="episode-select" name="episode-select"></select
-        ></label>
+        >
         <button type"reset">Reset</button>
         <template id="option-template">
           <option>Select an episode</option>
