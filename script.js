@@ -17,10 +17,10 @@ function setup() {
  * @returns {Element} Card fragment
  */
 const episodeCard = (
-  template,
+  templateId,
   {id, image: {medium}, name, summary, season, number}
 ) => {
-  const card = document.getElementById(template).content.cloneNode(true);
+  const card = document.getElementById(templateId).content.cloneNode(true);
   card.querySelector('[data-episode="title"]').textContent = name;
   card.querySelector('[data-episode="code"]').textContent = makeEpisodeCode(
     season,
