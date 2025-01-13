@@ -48,7 +48,7 @@ const makeEpisodeCode = (season, episode) => `S${pad(season)}E${pad(episode)}`;
 
 /**
  * @param {string} html
- * @returns {Document} Parsed HTML from TV Maze API (it sends <p> tags)
+ * @returns {Document} Parsed HTML from TV Maze API (it sends <p> tags) - we don't want to set innerHTML to avoid XSS injection attacks
  */
 const parseFromAPI = (html) => {
   const parser = new DOMParser();
