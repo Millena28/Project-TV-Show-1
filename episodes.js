@@ -3,7 +3,7 @@
 //This content is from https://www.tvmaze.com/
 //specifically: https://api.tvmaze.com/shows/82/episodes
 
-export function getOneEpisode() {
+function getOneEpisode() {
   return {
     id: 4952,
     url:
@@ -31,7 +31,7 @@ export function getOneEpisode() {
   };
 }
 
- export function getAllEpisodes() {
+function getAllEpisodes() {
   return [
     {
       id: 4952,
