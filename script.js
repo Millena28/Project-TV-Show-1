@@ -2,8 +2,12 @@
 
 import { getAllEpisodes } from "./episodes.js";
 
+const allEpisodes = getAllEpisodes();
+const state={
+  allEpisodes: allEpisodes,
+  searchTerm:""
+}
 function setup() {
-  const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
 }
 
@@ -58,6 +62,30 @@ function makePageForEpisodes(episodeList) {
       }      
 });
  }
+ 
+ 
+ //Search function 
+ const search = (event) => {
+  const searchTerm = searchInput.value.toLowerCase().trim();
+  state.searchTerm = searchTerm;
 
+  let filteredEpisodes = state.allEpisodes.filter((episode) => {
+    return (
+      episode.name.toLowerCase().includes(state.searchTerm) ||
+      episode.summary.toLowerCase().includes(state.searchTerm) ||
+      episode.season.toString().includes(state.searchTerm) ||
+      episode.number.toString().includes(state.searchTerm) ||
+      episode.id.toString().includes(state.searchTerm)
+    );
+  });
+
+
+  // Update the display with the filtered results
+  displayEpisodes(filteredEpisodes);
+};
+ //Search event listener 
+ const searchInput = document.getElementById("seachInput");
+  searchInput.addEventListener("keyup", search
+  );
 
 window.onload = setup;

@@ -9,14 +9,20 @@
   </head>
 
   <body>
+    <div id="nav-bar">
+      <div id="search">
+        <input id="seachInput" type="text" placeholder="Search episodes" />
+      </div>
+    </div>
     <div id="root">
     </div>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
    
-    <script type="module">
-      import { getAllEpisodes } from "./episodes.js";
-    </script>
+    <!-- <script type="module">
+      // This line is unnecessary as the function is already imported in the HTML file. Uncomment it if you want to use it again.
+      // import { getAllEpisodes } from "./episodes.js";
+    </script> -->
 
     <!-- Loads YOUR javascript code -->
     <script defer type = "module" src="script.js"></script>
