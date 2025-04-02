@@ -9,11 +9,11 @@ const state={
 }
 function setup() {
   render(allEpisodes);
+  allEpisodesDropdown(allEpisodes);
 }
 
 function render(episodeList) {
-  const rootElem = document.getElementById("root");
-  rootElem.textContent = `Got ${episodeList.length} episode(s)`;
+  
   // const rootElem = document.getElementById("root");
    // rootElem.textContent = `Got ${episodeList.length} episode(s)`;
    displayEpisodes(episodeList);
@@ -100,5 +100,37 @@ function howManyEpisodes(episodes) {
  const searchInput = document.getElementById("seachInput");
   searchInput.addEventListener("keyup", search
   );
+
+  //dropdown event listener
+  const select = document.getElementById("episodes-dropdown");
+  function allEpisodesDropdown(allEpisodes) {
+    
+    const option = document.createElement("option");
+    option.value = "all";
+      option.textContent = `All Episodes`;
+      select.appendChild(option);
+    allEpisodes.forEach(episode => {
+      const option = document.createElement("option");
+      option.value = episode.id;
+      option.textContent = `S${createEpisodeNumber(episode.season)}E${createEpisodeNumber(episode.number)} - ${episode.name}`;
+      select.appendChild(option);
+      
+    }
+    );
+  }
+  
+  select.addEventListener("change", (event) => {
+    const selectedValue = event.target.value;
+
+    if(selectedValue === "all") {
+      render(allEpisodes);
+      return;
+    }
+    const selectedId = parseInt(event.target.value);
+    const filteredEpisodes = allEpisodes.filter(episode => episode.id === selectedId);
+    console.log(selectedId);
+    selectedId === "all" ? render(state.allEpisodes) : render(filteredEpisodes);
+    
+  });
 
 window.onload = setup;
