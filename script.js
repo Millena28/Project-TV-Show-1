@@ -25,9 +25,14 @@ function render(episodeList) {
 
  function displayEpisodes(episodes) {
   // console.log("AM here testing");
-  
   const container = document.getElementById("root");
   container.innerHTML = ""; // Clear any previous content
+
+  //Episode count displayer
+  const episodeCount = document.createElement("h2");
+  episodeCount.textContent = howManyEpisodes(episodes);
+   //This line displays the number of the episodes was found in the search
+  container.appendChild(episodeCount);
 
   episodes.forEach(episode => {
      
@@ -75,15 +80,23 @@ function render(episodeList) {
       episode.summary.toLowerCase().includes(state.searchTerm) ||
       episode.season.toString().includes(state.searchTerm) ||
       episode.number.toString().includes(state.searchTerm) ||
+      // MILLENA : I added this line to filter by episode ID, If you find it confusing or useless, you can remove it.
       episode.id.toString().includes(state.searchTerm)
     );
   });
 
-
+  
   // Update the display with the filtered results
   displayEpisodes(filteredEpisodes);
 };
- //Search event listener 
+
+//This function is used to display the number of episodes found in the search
+function howManyEpisodes(episodes) {
+ return episodes.length===0? `No episode was found` : episodes.length === 1
+   ? `${episodes.length} episode was found`
+   : `${episodes.length} episodes found`;
+}
+//Search event listener 
  const searchInput = document.getElementById("seachInput");
   searchInput.addEventListener("keyup", search
   );
