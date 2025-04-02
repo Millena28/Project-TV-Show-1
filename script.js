@@ -8,10 +8,10 @@ const state={
   searchTerm:""
 }
 function setup() {
-  makePageForEpisodes(allEpisodes);
+  render(allEpisodes);
 }
 
-function makePageForEpisodes(episodeList) {
+function render(episodeList) {
   const rootElem = document.getElementById("root");
   rootElem.textContent = `Got ${episodeList.length} episode(s)`;
   // const rootElem = document.getElementById("root");
